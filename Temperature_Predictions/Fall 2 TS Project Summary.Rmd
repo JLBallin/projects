@@ -9,7 +9,7 @@ library(tictoc)
 ```{r}
 
 # Reading in the data and formatting
-data <- read.csv("/Users/michaelkelly/Documents/Time Series Homework/Project/external_training_data.csv")
+data <- read.csv("https://github.com/JLBallin/projects/blob/main/Temperature_Predictions/external_training_data.csv")
 
 data
 data$month <- as.factor(data$month)
@@ -140,7 +140,7 @@ ndiffs(ts5)
 acf(ts5 %>% diff(), lag.max = 24*14 )
 pacf(ts5 %>% diff(), lag.max = 24*14 )
 
-# No ARIMA's going to fit this super well, but this order seems as reasonably as any other.
+# No ARIMA's going to fit this super well, but this order seems as reasonable as any other.
 arima5 <- Arima(ts5, order = c(2,1,0), seasonal = c(5,0,1), method = "CSS")
 
 # And now we generate our forecast
